@@ -116,6 +116,12 @@ Simplfies the use instead of using
   - Dependecies provided through class consructor
 - Setter Injection
   - @Autowired
+- Instance Injection
+
+## Property Values in Spring Boot
+
+I can use the @Value annotation to take values from application.properties file.
+`@Value("prop.something") String str`
 
 
 ## Lazy Initialization
@@ -146,4 +152,5 @@ Simplfies the use instead of using
 - @Scope("prototype") for @Component
 - Bean LifeCycle
 - @AutoWired Setter injection
+- Instance Injection
 - Lazy Initialization for @Component in Spring Boot
