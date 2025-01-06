@@ -72,6 +72,71 @@ public ResponseEntity<String> handleResourcetNotFoundException(ResourceNotFound 
 Inside the application.properties, I can set which logging level to show
 `logging.level.root=warn`
 
+```properties
+# will ge more details of the app
+management.endpoints.web.exposure.include=*
+```
+
+- `http://localhost:8080/actuator/mappings`
+- `http://localhost:8080/actuator/health`
+- `http://localhost:8080/actuator/metrics`
+
+
+`actuator\info` Endpoint can be used to add extra information about the application part of the actuator
+
+```properties
+# Enable the info endpoint
+management.info.env.enabled=true
+# Expose the api endpoints
+management.endpoints.web.exposure.include=health,info
+
+
+# Adding details to /actuator/info endpoint
+info.app.name=Spring Boot Basic Security
+info.app.version=v0.0.1
+info.app.description=App to demonstrate basic security to products an actuator apis
+info.author=Ahmed
+```
+
+
+## Spring Security
+
+Spring security can be used for securing the application
+
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-security</artifactId>
+</dependency>
+```
+
+## Spring Boot Test
+
+- Mockito was used for unit testing
+- Added additional plugin line in pom.xml
+- 
+
+
+## Advanced Topics in RESTful Web Services
+
+- HATEOAS (Hypermedia as the Engine of Application State)
+- API Versioning
+  - `api/v0/products` and `api/v1/products`
+
+**Example of HATEOS Response**
+
+```java
+return EntityModel.of(product,
+    linkTo(methodOn(ProductController.class).getProductById(id)).withSelfRel(),
+    linkTo(methodOn(ProductController.class).updateProduct(id, product)).withRel("put"),
+    linkTo(methodOn(ProductController.class).deleteProduct(id)).withRel("delete")
+);
+```
+
+
+
 ## Things to learn
 
-- 
+- Unit testing
+- Mockito unit testing
+- Mockmvc for mocking http requests
