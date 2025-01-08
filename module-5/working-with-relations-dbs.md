@@ -153,7 +153,34 @@ List<Product> searchByTitle(@Param("title") String title);
   - Ideal for frequently accessed, rarely updated data
 
 
+## Validation
+
+```java
+@PostMapping
+public ResponseEntity<Product> createProduct(@Valid @RequestBody Product product) {
+    Product productSaved = productService.create(product);
+    return ResponseEntity
+            .status(HttpStatus.CREATED)
+            .body(productSaved);
+}
+```
+
+
+## Transactions and Concurrency
+
+- Concurrency issues arise when multiple transactions access the same data simultaneously
+- JPA provides mechanisims to manage these conflicts by Optimistic Locking:
+  - Ensure entry has not been modified by another transaction before committing
+  - Implementation:
+    - 
+
+
+
+
+
 ## Things to learn
 
 - Entity Manager in JPA
 - JPQL and Advanced JPQL
+- Spring JPA Sorting
+- Starter Validation

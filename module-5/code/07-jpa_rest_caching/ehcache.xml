@@ -1,0 +1,9 @@
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.ehcache.org/ehcache.xsd">
+    <cache name="com.example.jpa_rest_product.entity.Product"
+           maxEntriesLocalHeap="500"
+           eternal="false"
+           timeToIdleSeconds="5"
+           timeToLiveSeconds="5"
+           memoryStoreEvictionPolicy="LRU"
+    />
+</ehcache>
