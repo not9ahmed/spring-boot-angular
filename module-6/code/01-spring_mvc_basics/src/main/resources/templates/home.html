@@ -1,0 +1,27 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home Page</title>
+    <style></style>
+<!--    <link rel="stylesheet" href="/static/css/style.css"></link>-->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+</head>
+<body>
+    <h1>Working with Spring MVC APP</h1>
+    <div>
+        Hello World
+    </div>
+
+    <button onclick="buttonClick()">Button</button>
+
+    <a th:href="@{/about}">About Page</a>
+
+    <img th:src="@{/images/typescript.png}"/>
+
+    <script th:src="@{/js/script.js}"></script>
+</body>
+</html>

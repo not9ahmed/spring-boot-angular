@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>About Page</title>
+</head>
+<body>
+    <h1>About Page</h1>
+
+    <!-- Dynamics + Static Values -->
+    <div style="border: 2px solid blue;">
+        <h2>Dynamic + Static Values</h2>
+        <h3 th:text="'First Name :' + ${first_name}"></h3>
+        <h3 th:text="'Last Name: ' + ${last_name}"></h3>
+        <h3 th:text="'Age: ' + ${age}"></h3>
+    </div>
+
+
+    <!-- Dynamics Values -->
+    <div style="border: 2px solid blue;">
+        <h2>Dynamic Values</h2>
+        <h3 th:text="${first_name}"></h3>
+        <h3 th:text="${last_name}"></h3>
+        <h3 th:text="${age}"></h3>
+    </div>
+
+    <!--  Loop -->
+    <h3 th:if="${age > 99}">100 Years Old</h3>
+
+    <!--  negation -->
+    <h3 th:unless="${age > 99}">100 Years Old</h3>
+
+    <!--  Loop  -->
+    <h3>Friends List</h3>
+    <ol>
+        <li th:each="friend: ${friends}" th:text="${friend}"></li>
+    </ol>
+
+    <!-- class -->
+    <div style="border: 2px solid black;">
+        <h2>Person Detail</h2>
+        <h3 th:text="${person.name}">Name:</h3>
+        <h3 th:text="${person.email}">Email:</h3>
+        <h3 th:text="${person.salary}">Salary:</h3>
+    </div>
+
+
+    <!-- List of class -->
+    <div style="border: 2px solid blue;">
+        <table>
+            <thead>
+            <tr>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Salary</td>
+            </tr>
+            </thead>
+
+            <tr th:each="emp : ${employees}" style="">
+                <td th:text="${emp.name}"></td>
+                <td th:text="${emp.email}"></td>
+                <td th:text="${emp.salary}"></td>
+            </tr>
+        </table>
+
+    </div>
+
+</body>
+</html>

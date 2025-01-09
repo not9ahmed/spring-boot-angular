@@ -177,10 +177,10 @@ public ResponseEntity<Product> createProduct(@Valid @RequestBody Product product
 
 
 
-
 ## Things to learn
 
 - Entity Manager in JPA
 - JPQL and Advanced JPQL
 - Spring JPA Sorting
-- Starter Validation
+- Spring Starter Validation
+- Preventing transactions locking with `@Version`
