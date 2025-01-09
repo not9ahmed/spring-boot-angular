@@ -125,7 +125,32 @@ model.addAttribute("names", names);
 ```
 
 
+`@ModelAttribute is to pass objects between views`
+
+```html
+<form method="post" th:action="@{/employees/save}" th:object="${employee}">
+
+</form>
+```
+
+
+```java
+public String saveEmployee(@Valid @ModelAttribute Employee employee, BindingResult bindingResult, Model model) {
+
+}
+
+```
+
+
+### Keypoint
+
+- Values coming from controller will be referenced with the sympol like `${employee}`
+- Values extracted from template itself will be like `*{name}`, and it can be due to taking from `${employee}` parent element class.
+
+
 ## Things to learn
 
 - DispatcherServlet and RequestMapping in Java
+- Thymeleaf template syntax
+- Spring MVC `@ModelAttribute`
 - 

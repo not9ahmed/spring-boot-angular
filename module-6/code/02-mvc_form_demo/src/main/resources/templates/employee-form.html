@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+<!--      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">-->
+<!--      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>-->
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</head>
+<body>
+<div class="container">
+    <h1>Employee Registration Form</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <form method="post" th:action="@{/employees/save}" th:object="${employee}">
+
+                <div class="mb-3">
+                    <label class="form-label">Name</label>
+                    <input type="text" class="form-control" th:field="*{name}"/>
+
+                    <!-- fields hasErrors from Spring MVC for error -->
+                    <div class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="text" class="form-control" th:field="*{email}"/>
+                    <div class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Gender</label>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" th:field="*{gender}" value="Male"/>
+                        <label class="form-check-label">Male</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" th:field="*{gender}" value="Female"/>
+                        <label class="form-check-label">Female</label>
+                    </div>
+
+                    <div class="text-danger" th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"></div>
+
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Department</label>
+                    <select class="form-select" th:field="*{department}">
+                        <option value="">Select a Department</option>
+                        <option th:each="dept : ${departments}" th:value="${dept}" th:text="${dept}"></option>
+                    </select>
+                    <div class="text-danger" th:if="${#fields.hasErrors('department')}" th:errors="*{department}"></div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Street</label>
+                    <input type="text" class="form-control" th:field="*{address.street}"/>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">City</label>
+                    <input type="text" class="form-control" th:field="*{address.city}"/>
+                    <div class="text-danger" th:if="${#fields.hasErrors('address.city')}" th:errors="*{address.city}"></div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">State</label>
+                    <input type="text" class="form-control" th:field="*{address.state}"/>
+                </div>
+
+                <div class="mb-3">
+                    <button class="btn btn-success" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
