@@ -29,6 +29,16 @@
                     <div class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
                 </div>
                 <div class="mb-3">
+                    <label class="form-label">Mobile</label>
+                    <input type="text" class="form-control" th:field="*{mobile}"/>
+                    <div class="text-danger" th:if="${#fields.hasErrors('mobile')}" th:errors="*{mobile}"></div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Salary</label>
+                    <input type="text" class="form-control" th:field="*{salary}"/>
+                    <div class="text-danger" th:if="${#fields.hasErrors('salary')}" th:errors="*{salary}"></div>
+                </div>
+                <div class="mb-3">
                     <label class="form-label">Gender</label>
                     <div class="form-check">
                         <input type="radio" class="form-check-input" th:field="*{gender}" value="Male"/>

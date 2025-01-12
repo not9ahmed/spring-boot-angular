@@ -1,10 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Register - Product Management App</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <script th:link="@{/js/bootstrap.min.js}"></script>
 </head>
 <body>
-$END$
+<div class="container">
+
+    <div class="row mt-3">
+        <!--        <div class="col"></div>-->
+        <div class="col">
+            <h3>Login Form</h3>
+
+            <div th:if="${param.error}" class="alert alert-success">
+                Invalid username and password
+            </div>
+
+            <div th:if="${param.logout}" class="alert alert-success">
+                You have been logged out
+            </div>
+
+            <!-- Take from the url -->
+            <div th:if="${param.sample}" class="alert alert-success">
+                sample
+            </div>
+
+            <form method="post" th:action="@{/auth/save}" th:object="${member}">
+                <div class="mb-3">
+                    <label class="form-label" for="firstName">First Name</label>
+                    <input id="firstName" type="text" class="form-control" name="firstName" placeholder="Enter First Name" th:field="*{firstName}">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="lastName">Last Name</label>
+                    <input id="lastName" type="text" class="form-control" name="lastName" placeholder="Enter Last Name" th:field="*{lastName}">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="email">Email</label>
+                    <input id="email" type="text" class="form-control" name="email" placeholder="Enter Email" th:field="*{email}">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="password">Password</label>
+                    <input id="password" type="text" class="form-control" name="password" placeholder="Enter password"  th:field="*{password}">
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <a th:href="@{/auth/login}">Already Registered, Login</a>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+
+
 </body>
 </html>

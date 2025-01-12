@@ -141,16 +141,65 @@ public String saveEmployee(@Valid @ModelAttribute Employee employee, BindingResu
 
 ```
 
-
-### Keypoint
+### Keypoints of Thymeleaf
 
 - Values coming from controller will be referenced with the sympol like `${employee}`
 - Values extracted from template itself will be like `*{name}`, and it can be due to taking from `${employee}` parent element class.
+
+
+
+## Validation
+
+The following is example of Jakarta validation annotations
+
+```java
+@NotEmpty(message = "Mobile is required")
+@Pattern(regexp = "^[0-9]{10}", message = "Mobile number must be 10 digits")
+private String mobile;
+```
+
+
+
+```java
+public class EmailDomainConstraintValidator implements ConstraintValidator<EmailDomain, String> {
+
+    @Override
+    public void initialize(EmailDomain emailDomain) {
+        domainName = emailDomain.value();
+    }
+
+    // Validation will occur here
+    @Override
+    public boolean isValid(String emailAddress, ConstraintValidatorContext constraintValidatorContext) {
+        if (emailAddress.endsWith(domainName)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+```
+
+**To redirect to other links**
+
+```java
+// redirect to other link
+return "redirect:/products";
+```
+
+**To extract parameter from URL**
+```html
+<div th:if="${param.error}" class="alert alert-success">
+    Invalid username and password
+</div>
+```
 
 
 ## Things to learn
 
 - DispatcherServlet and RequestMapping in Java
 - Thymeleaf template syntax
-- Spring MVC `@ModelAttribute`
-- 
+- Spring MVC `@ModelAttribute` and how objects are passed between views
+- `BindingResult result` in Controllers and how it's used
+- How Spring handles the form validation with `${#fields.hasErrors('name')}`
+- Java annotations

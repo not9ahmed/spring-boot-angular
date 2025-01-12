@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.orrg">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <script th:link="@{/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div class="container">
+    <h1>Welcome to Product management app using spring MVC</h1>
+</div>
+
+<div class="container">
+    <div><a th:href="@{/products}">List of products Page</a></div>
+    <div><a th:href="@{/products/new}">New products</a></div>
+</div>
+
+
+</body>
+</html>

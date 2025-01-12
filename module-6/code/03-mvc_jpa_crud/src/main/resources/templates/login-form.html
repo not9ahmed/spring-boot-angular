@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Product Management App</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <script th:link="@{/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div class="container">
+
+    <div class="row mt-3">
+<!--        <div class="col"></div>-->
+        <div class="col">
+            <h3>Login Form</h3>
+
+            <div th:if="${param.error}" class="alert alert-success">
+                Invalid username and password
+            </div>
+
+            <div th:if="${param.logout}" class="alert alert-success">
+                You have been logged out
+            </div>
+
+            <!-- Take from the url -->
+            <div th:if="${param.sample}" class="alert alert-success">
+                sample
+            </div>
+
+            <form method="post" th:action="@{/authenticateUser}">
+                <div class="mb-3">
+                    <label class="form-label" for="username">Username</label>
+                    <input id="username" type="text" class="form-control" name="username" placeholder="Enter username">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="password">Password</label>
+                    <input id="password" type="text" class="form-control" name="password" placeholder="Enter password">
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+</body>
+</html>

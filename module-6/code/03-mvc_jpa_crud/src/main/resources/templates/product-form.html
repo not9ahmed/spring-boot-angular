@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.orrg">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Form - Product Management App</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <script th:link="@{/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div class="container">
+    <h1>Product Form</h1>
+    <div>
+        <div><a th:href="@{/products}">List of products Page</a></div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <h2 th:text="${product.id != null ? 'Edit Product' : 'Add Product'}"></h2>
+        <form method="post" th:action="@{/products/save}" th:object="${product}">
+            <div class="mb-3">
+                <label class="form-label" for="title">Title</label>
+                <input type="text" class="form-control" th:field="*{title}" id="title">
+                <div class="text-danger" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="category">Category</label>
+                <select name="" id="category" class="form-select" th:field="*{category}">
+                    <option value="">Select a category</option>
+                    <option th:each="cat : ${categories}" th:value="${cat}" th:text="${cat}"></option>
+                </select>
+                <div class="text-danger" th:if="${#fields.hasErrors('category')}" th:errors="*{category}"></div>
+            </div>
+
+
+            <div class="mb-3">
+                <label class="form-label" for="price">Price</label>
+                <input type="text" class="form-control" th:field="*{price}" id="price">
+                <div class="text-danger" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></div>
+            </div>
+
+
+            <div class="mb-3">
+                <button class="btn btn-success" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+</body>
+</html>
