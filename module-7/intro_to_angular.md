@@ -45,6 +45,30 @@
 
 ## Angular
 
+- Spec: test related files
+- Angular CLI (NG)
+- 
+
+
+
+## Components
+
+- HTML Template that declares what renders on page
+- Typescript class that defines
+
+To create a component use the below commmands
+
+```bash
+ng generate component <component-name>
+
+# or
+
+ng g c <component-name>
+```
+
+
+
+
 
 
 
@@ -52,3 +76,4 @@
 
 - Getter & Setter in TypeScript
 - protected keyword
+- Angular project structure
