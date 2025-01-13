@@ -67,9 +67,35 @@ ng g c <component-name>
 ```
 
 
+## Data Binding in Angular
 
+Examples of interporaltions
+- Text interporation
+- Property binding
+- 
 
+## Data Binding - Interpolation - {{}}
 
+```
+Showing/binding values from Typescript to template
+```
+
+## Data Binding - Property Binding - []
+
+In TS
+```typescript
+export class PropertyBindingComponent {
+  webUrl: string = "https://google.com";
+  picUrl: string = "images/icons8-typescript-480.png";
+  picHeight: number = 150;
+  isDisabled: boolean = false;
+}
+```
+
+In HTML
+```html
+<img [src]="picUrl" [height]="picHeight" alt="Image not found">
+```
 
 
 ## Things to learn
