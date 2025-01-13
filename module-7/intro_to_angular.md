@@ -40,3 +40,15 @@
 
 ## OOPs in TypeScript
 
+- get() keyword used to create getter
+
+
+## Angular
+
+
+
+
+## Things to learn
+
+- Getter & Setter in TypeScript
+- protected keyword
