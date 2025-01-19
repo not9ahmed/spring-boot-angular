@@ -1,0 +1,13 @@
+<h3>ngStyle Demo</h3>
+<p [style.color]="color">Single Style Binding</p>
+<p [ngStyle]="myStyle">
+    Binding Multiple style using ngStyle
+</p>
+
+<h3>ngClass Demo where the class will be toggled</h3>
+
+<p [class.highlight]="isHighlight">Apply single css class using ngClass</p>
+<p [ngClass]="{highlight: isHighlight, enhance: isEnahnce}">Apply Multiple css class using ngClass</p>
+<button (click)="toggleIsHighlight()">Toggle Highlight</button>
+
+<button (click)="toggleIsEnhance()">Toggle Enhance</button>

@@ -49,6 +49,11 @@
 - Angular CLI (NG)
 - 
 
+To create a new Angular project
+
+```zsh
+ng new <app-name>
+```
 
 
 ## Components
@@ -96,6 +101,55 @@ In HTML
 ```html
 <img [src]="picUrl" [height]="picHeight" alt="Image not found">
 ```
+
+
+## Data Binding - Event Binding - ()
+
+- To handle events
+
+
+## Data Binding - Two-way data Binding - [(ngModel)]
+
+- Two-way binding gives components in your application a way to share data
+- Use two-way binding to listen for events and update values simultaneosuly between component and template
+- Combination of square brackets and paranetheses [()]
+- [()] Syntax combines brackets of property binding [] and event binding ()
+
+
+
+## Angular Directives
+
+- Angular directives are the elements which are used to change behavior or apperance of DOM elements
+
+2 Types:
+
+    - Structural
+    - Behavioral
+
+### Structural Directive
+
+- Structural directives that change the DOM layout
+
+
+#### Structural Directive - *ngFor
+
+- Same as for loop
+- Used to iterate over collection of data
+```html
+*ngFor="let friend of friends"
+```
+
+### Introduction to Pipes in Angular
+
+- Angular takes raw data and transform it to desired format
+- Transform data to specific format before displaying them to users
+- Using the (|) pipe operator, we can apply pipe features
+
+### Using Built-In Pipes
+
+- Angular provides several built-in pipes
+
+
 
 
 ## Things to learn

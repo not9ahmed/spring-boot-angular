@@ -1,0 +1,81 @@
+<h1>ngFor Demo</h1>
+<h4>Friends List</h4>
+
+<p *ngIf = "friends.length == 0">No Friends</p>
+<ol *ngIf = "friends.length > 0">
+    @for (friend of friends; track $index) {
+        <li>{{friend}}</li>
+    }
+</ol>
+
+
+<!-- Other syntax @empty -->
+<h4>Using empty</h4>
+<ol>
+    @for (friend of friends; track $index) {
+        <li>{{friend}}</li>
+    } @empty {
+        No friend
+    }
+</ol>
+
+
+<!-- Old for loop -->
+<!-- <ol>
+    <li *ngFor="let friend of friends">{{friend}}</li>
+</ol> -->
+
+
+<!-- New for loop -->
+<!-- <ol>
+    @for (friend of friends; track $index) {
+        <li>{{friend}} {{$index}}</li>
+    }
+</ol> -->
+
+<h2>ngIf demo</h2>
+<button type="button" (click)="toggleVisibility()">
+    Toggle Visibility
+</button>
+
+<!-- Old Syntax -->
+<!-- <p *ngIf="isVisable">
+    This paragraph is conditionally visible
+</p> -->
+
+<!-- New syntax -->
+@if (isVisable) {
+    <p>
+        This paragraph is conditionally visible
+    </p>
+}
+
+
+<h2>Switch Case Demo</h2>
+
+@switch (dayOfWeek) {
+    @case (0) {
+        <p>Sunday</p>
+    }
+    @case (1) {
+        <p>Monday</p>
+    }
+    @case (2) {
+        <p>Tuesday</p>
+    }
+    @case (3) {
+        <p>Wednesday</p>
+    }
+    @case (4) {
+        <p>Thursday</p>
+    }
+    @case (5) {
+        <p>Friday</p>
+    }
+    @case (6) {
+        <p>Saturday</p>
+    }
+    @default {
+        <p>Invalid Date</p>
+    }
+}
