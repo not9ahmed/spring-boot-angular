@@ -150,6 +150,25 @@ In HTML
 - Angular provides several built-in pipes
 
 
+### Custom Pipes in Angular
+
+```zsh
+ng generate pipe <custom-pipe-name>
+ng g p <custom-pipe-name>
+```
+
+
+## Angular Routing Basics: Configuring Routes
+
+- **RouterLink**
+  - Directive used to navigate between routes
+  - Similar to href attribute in HTML but leverages Angular's routing
+
+- **RouterOutlet**
+  - Acts as placeholder where mounted components will be displayed
+
+- **RouterLinkActive**
+
 
 
 ## Things to learn
