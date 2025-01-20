@@ -1,0 +1,57 @@
+<div class="row">
+    <div class="col-md-6">
+        <h2>Register Form</h2>
+        <form #myForm="ngForm" (ngSubmit)="handleSubmit(myForm)">
+            <div class="mb-2">
+                <label class="form-label">First Name</label>
+                <input type="text" name="firstName" class="form-control" #firstName="ngModel" ngModel required minlength="3">
+                <div *ngIf="firstName.invalid && firstName.touched">
+                    <p *ngIf="firstName.errors?.['required']" class="text-danger">First Name is required</p>
+                    <p *ngIf="firstName.errors?.['minlength']" class="text-danger">First Name should be at least 3 characters</p>
+                </div>
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Last Name</label>
+                <input type="text" name="lastName" class="form-control" #lastName="ngModel" ngModel required>
+                <div *ngIf="lastName.invalid && lastName.touched">
+                    <p *ngIf="lastName.errors?.['required']" class="text-danger">Last Name is required</p>
+                </div>
+            </div>
+
+            <div class="mb-2">
+                <label class="form-label">Email</label>
+                <input type="text" name="email" class="form-control" #email="ngModel" ngModel required minlength="3">
+                <div *ngIf="email.invalid && email.touched">
+                    <p *ngIf="email.errors?.['required']" class="text-danger">Email is required</p>
+                    <p *ngIf="email.errors?.['minlength']" class="text-danger">Invalid email address</p>
+                </div>
+            </div>
+
+
+            <!-- Will create sub group object -->
+            <div ngModelGroup="address">
+                <div class="mb-2">
+                    <label class="form-label">Street</label>
+                    <input type="text" name="street" class="form-control" #street="ngModel" ngModel required>
+                    <div *ngIf="street.invalid && street.touched">
+                        <p *ngIf="street.errors?.['required']" class="text-danger">Street is required</p>
+                    </div>
+                </div>
+
+                <div class="mb-2">
+                    <label class="form-label">Pin Code</label>
+                    <input type="text" name="pinCode" class="form-control" #pinCode="ngModel" ngModel required>
+                    <div *ngIf="pinCode.invalid && pinCode.touched">
+                        <p *ngIf="pinCode.errors?.['required']" class="text-danger">Pin Code is required</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="mb-2">
+                <button [disabled]="myForm.invalid" type="submit" class="btn btn-success">Submit</button>
+            </div>
+
+        </form>
+    </div>
+</div>

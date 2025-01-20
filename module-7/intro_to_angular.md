@@ -170,9 +170,29 @@ ng g p <custom-pipe-name>
 - **RouterLinkActive**
 
 
+## Angular Dynamic Routes
+
+Use this in app.routes.ts
+```typescript
+{path: 'profiles/:name', component: ProfileDetailComponent},
+```
+
+Then access it in the component like this
+```typescript
+
+```
+
+## Query Param in Angular
+
+
+
 
 ## Things to learn
 
 - Getter & Setter in TypeScript
 - protected keyword
 - Angular project structure
+- Pipes
+- Routers in Angular
+- FormControl, FormGroup
+- 

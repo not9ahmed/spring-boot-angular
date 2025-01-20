@@ -1,0 +1,110 @@
+<div class="row">
+    <div class="col-md-6">        
+        <h2>Register Form</h2>
+        <form [formGroup]="registerForm" (ngSubmit)="handleSubmit()">
+    
+            <div class="mb-2">
+                <label class="form-label">First Name:</label>
+                <input type="text" name="firstName" class="form-control" formControlName="firstName">
+
+                <!-- <div class="text-danger" *ngIf="registerForm.get('firstName')?.invalid
+                    && registerForm.get('firstName')?.touched">
+                    Invalid first name
+                </div> -->
+
+                <div class="text-danger" *ngIf="firstName.invalid && firstName.touched">
+                    <p *ngIf="firstName.hasError('required')">First name is required</p>
+                    <p *ngIf="firstName.hasError('minlength')">First name should be at leat 3 characters</p>
+                </div>
+            </div>
+
+
+            <div class="mb-2">
+                <label for="" class="form-label">Last Name:</label>
+                <input type="text" name="lastName" class="form-control" formControlName="lastName">
+
+                <div class="text-danger" *ngIf="lastName.invalid && lastName.touched">
+                    <p *ngIf="lastName.hasError('required')">Last name is required</p>
+                </div>
+            </div>
+
+            <div class="mb-2">
+                <label for="" class="form-label">Phone Numbers:</label>
+
+
+                <div formArrayName="phoneNumbers">
+                    @for (phone of phoneNumbers.controls; track $index) {
+                        <div class="row mb-2">
+                            <div class="col-md-3">
+                                <label class="form-label">Phone {{$index+1}}</label>
+                            </div>
+
+                            <div class="col-md-6">
+                                <input type="text" [formControlName]="$index" class="form-control">
+                                <div class="text-danger" *ngIf="phone.invalid && phone.touched">
+                                    <p *ngIf="phone.hasError('required')">Phone number required</p>
+                                    <p *ngIf="phone.hasError('pattern')">Phone must be 10 digits</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <button type="button" [disabled]="phoneNumbers.length == 1" class="btn btn-danger" (click)="removePhoneNumber($index)">Remove</button>
+                            </div>
+    
+                        </div>
+                    }
+                    <button type="button" [disabled]="phoneNumbers.length > 5" class="btn btn-success" (click)="addPhoneNumber()">Add Phone Number</button>
+                </div>
+
+            </div>
+
+
+            <div class="mb-2">
+                <label for="" class="form-label">Email</label>
+                <input type="text" name="email" class="form-control" formControlName="email">
+                <div class="text-danger" *ngIf="email.invalid && email.touched">
+                    <p *ngIf="email.hasError('required')">Email is required</p>
+                    <p *ngIf="email.hasError('email')">Invalid Email Address</p>
+                </div>
+            </div>
+
+            <div class="mb-2">
+                <label for="" class="form-label">Password</label>
+                <input type="password" name="password" class="form-control" formControlName="password">
+                <div class="text-danger" *ngIf="password.invalid && password.touched">
+                    <p *ngIf="password.hasError('required')">Password is required</p>
+                    <p *ngIf="password.hasError('minlength')">Password must be at least 6 characters</p>
+                    <p *ngIf="password.hasError('cannotContainSpace')">Password must not contain space</p>
+                </div>
+            </div>
+
+            <div formGroupName="address">
+
+                <div class="mb-2">
+                    <label for="" class="form-label">Street:</label>
+                    <input type="text" name="street" class="form-control" formControlName="street">
+    
+                    <div class="text-danger" *ngIf="street.invalid && street.touched">
+                        <p *ngIf="street.hasError('required')">Street is required</p>
+                    </div>
+                </div>
+
+                <div class="mb-2">
+                    <label for="" class="form-label">Pin Code:</label>
+                    <input type="text" name="pinCode" class="form-control" formControlName="pinCode">
+    
+                    <div class="text-danger" *ngIf="pinCode.invalid && pinCode.touched">
+                        <p *ngIf="pinCode.hasError('required')">Pin Code required</p>
+                        <p *ngIf="pinCode.hasError('pattern')">Pin Code must be 6 digits</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="mb-2">
+                <button class="btn btn-primary" type="submit" [disabled]="registerForm.invalid">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
