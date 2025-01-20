@@ -186,6 +186,24 @@ Then access it in the component like this
 
 
 
+## Template Driven Form
+
+
+
+
+## Reactive Form
+
+
+## Validators
+
+
+
+## Services
+
+```zsh
+ng generate service <folder-name>/<file-name>
+```
+
 
 ## Things to learn
 
@@ -195,4 +213,6 @@ Then access it in the component like this
 - Pipes
 - Routers in Angular
 - FormControl, FormGroup
-- 
+- Reactive and Template Forms
+- Forms validation in forms types
+- Dynamic input fields when the input of type array

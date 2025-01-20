@@ -1,0 +1,17 @@
+<h2>Calculate Form</h2>
+<div>
+    <form #myForm="ngForm" (ngSubmit)="handleSubmit(myForm)">
+
+        <div>
+            Price: <input type="number" name="price" ngModel required>
+        </div>
+        <div>
+            Quantity: <input type="number" name="quantity" ngModel required>
+        </div>
+        <div>
+            <button type="submit" [disabled]="myForm.invalid">Calculate</button>
+        </div>
+    </form>
+</div>
+
+<h3>Total Cost {{totalCost}}</h3>
