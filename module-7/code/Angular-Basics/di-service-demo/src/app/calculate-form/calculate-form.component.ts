@@ -7,7 +7,8 @@ import { CommonModule } from '@angular/common';
   selector: 'app-calculate-form',
   imports: [FormsModule, CommonModule],
   templateUrl: './calculate-form.component.html',
-  styleUrl: './calculate-form.component.css'
+  styleUrl: './calculate-form.component.css',
+  // providers: [CalculateService]
 })
 export class CalculateFormComponent {
   totalCost: number = 0;

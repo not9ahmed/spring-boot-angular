@@ -1,0 +1,31 @@
+<h2>List of Products</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (product of productsList; track product.id) {
+            <tr>
+                <td>{{product.id}}</td>
+                <td>{{product.category}}</td>
+                <td>{{product.price | currency}}</td>
+                <td>
+                    <a [routerLink]="['/products/', product.id]" class="btn btn-warning m-2">Edit</a>
+                    <button type="button" class="btn btn-danger m-2" (click)="handleDelete(product.id)">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        } @empty {
+            <tr>
+                <td colspan="3">No Product Available</td>
+            </tr>
+        }
+    </tbody>
+</table>

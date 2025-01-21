@@ -5,7 +5,8 @@ import { CalculateService } from '../services/calculate.service';
   selector: 'app-display-result',
   imports: [],
   templateUrl: './display-result.component.html',
-  styleUrl: './display-result.component.css'
+  styleUrl: './display-result.component.css',
+  // providers: [CalculateService]
 })
 export class DisplayResultComponent {
   totalCost: number = 0;

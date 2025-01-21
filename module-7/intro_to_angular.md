@@ -139,6 +139,15 @@ In HTML
 *ngFor="let friend of friends"
 ```
 
+### New Syntax
+
+```
+@for (product of productsList; track product.id) {
+
+}
+```
+
+
 ### Introduction to Pipes in Angular
 
 - Angular takes raw data and transform it to desired format
@@ -188,7 +197,11 @@ Then access it in the component like this
 
 ## Template Driven Form
 
-
+Declare a form in a group using
+```
+<form #MyForm = "ngModel">
+</form>
+```
 
 
 ## Reactive Form
@@ -201,7 +214,25 @@ Then access it in the component like this
 ## Services
 
 ```zsh
+ng g s <folder-name>/<file-name>
 ng generate service <folder-name>/<file-name>
+```
+
+- Service is like a shared medium
+
+
+## Passing values from parent to child components
+
+
+- EventEmitter
+
+
+## Create Interface
+
+```typescript
+ng g i <folder-name>/<type-name>
+ng generate interface <folder-name>/<type-name>
+
 ```
 
 
@@ -212,7 +243,11 @@ ng generate service <folder-name>/<file-name>
 - Angular project structure
 - Pipes
 - Routers in Angular
-- FormControl, FormGroup
+- NgForm Directive
+- FormControl, FormGroup, FormGroupName
 - Reactive and Template Forms
 - Forms validation in forms types
+- Custom validators
 - Dynamic input fields when the input of type array
+- EventEmitter to pass from child to parent component
+- Read about FormGroup.patchValue

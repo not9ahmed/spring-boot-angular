@@ -1,0 +1,9 @@
+<div style="border: 3px solid blue;">
+<h2>parent Component</h2>
+<h4>Message from child: {{ childMessage}}</h4>
+<hr>
+<div style="border: 3px solid red;">
+    <!-- Will take the value from ts -->
+    <app-child [parentMessage]="message" (messageEvent)="receiveMessage($event)"></app-child>
+</div>
+</div>

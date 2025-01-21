@@ -1,0 +1,37 @@
+<h2>Add to Todo</h2>
+
+<div class="container">
+    <form #myForm="ngForm" (ngSubmit)="handleSubmit(myForm)">
+
+        <div class="row">
+            <div class="col">
+
+                <div class="mb-2">
+                    <label for="newTodo" class="form-label">
+                        New item title
+                    </label>
+                    <input type="text" name="title" class="form-control" id="newTodo" ngModel #title="ngModel" required>
+                    <div class="text-danger" *ngIf="title.invalid && title.touched">Title is required</div>
+                </div>
+
+            </div>
+
+            <div class="col-2">
+                <div class="mb-2">
+                    <label class="form-label">
+                        New Item Priority
+                    </label>
+                    <select name="priority"  class="form-select" ngModel #priority="ngModel">
+                        <option value="Low">Low</option>
+                        <option value="Normal">Normal</option>
+                        <option value="High">High</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-2">
+            <button type="submit" class="btn btn-success">Add item</button>
+        </div>
+    </form>
+</div>

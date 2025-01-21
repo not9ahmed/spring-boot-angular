@@ -1,0 +1,52 @@
+<h2>Edit Product</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form [formGroup]="productForm" (ngSubmit)="handleSubmit()">
+
+                <div class="mb-2">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" id="title" name="title" formControlName="title" placeholder="Enter title" class="form-control">
+
+                    <div class="text-danger" *ngIf="title.invalid && title.touched">
+                        <p *ngIf="title.hasError('required')">Title is required</p>
+                    </div>
+                </div>
+
+                <div class="mb-2">
+                    <label for="price" class="form-label">price</label>
+                    <input type="text" id="price" name="price" formControlName="price" placeholder="Enter price" class="form-control">
+
+                    <div class="text-danger" *ngIf="price.invalid && price.touched">
+                        <p *ngIf="price.hasError('required')">Price is required</p>
+                        <p *ngIf="price.hasError('min')">Price is Negative</p>
+                    </div>
+                </div>
+
+                <div class="mb-2">
+                    <label for="category" class="form-label">category</label>
+                    <select name="" id="" formControlName="category" class="form-select">
+                        <option value="">Select a category</option>
+                        <option value="Smartphone">Smartphone</option>
+                        <option value="Macbooks">Macbooks</option>
+                    </select>
+
+                    <div class="text-danger" *ngIf="category.invalid && category.touched">
+                        <p *ngIf="category.hasError('required')">category is required</p>
+                    </div>
+                </div>
+
+
+                <div class="mb-2">
+                    <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid">
+                        Update Product
+                    </button>
+                    <p class="text-success">{{message}}</p>
+                    <p class="text-danger">{{error}}</p>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
