@@ -236,6 +236,66 @@ ng generate interface <folder-name>/<type-name>
 ```
 
 
+## Introduction to RxJS and Observables
+
+- RxJS (Reactive Extension for JavaScript) is library for composing asynchronus and event-based programs using observable sequences.
+- Provides powerful tools to manage data streams and handle asynchronus operations with operator for filterng, transforming, and combining data.
+
+
+### *Key concepts in RxJS**
+
+  - Observable:
+    - Data producer that emits values over time
+    - Can emit single, multiple, or infinite values
+    - Similar to promoises bu supports multiple values
+
+  - Observer:
+    - Data consumer of data emitted by observable
+    - Implement methods like next, error and complete
+
+  - Subscription
+    - Represents execution of an observable
+    - Allows the observer to start recieving data
+
+  - Operators
+    - Functions to transform, filter, manipulate observable data
+    - map, filter, catchError, retry
+
+
+
+## Creating and subscribing to Observables
+
+- Creating observable
+  - Observable constructor
+  - of operator from RxJS
+  - Observable using from
+
+- Subscribing to Observables
+
+
+
+## Transformation Operators: map
+
+
+
+
+## Transformation Operators: filter
+
+
+
+## Error Handling in Angular Services and Components
+
+- RxJS operators for Error Handling
+- **catchError() operator**
+
+- **retry() operator**
+
+
+## Working with HTTP Requests
+
+- Add in app.config.ts `provideHttpClient()` in providers
+
+
 ## Things to learn
 
 - Getter & Setter in TypeScript
@@ -251,3 +311,6 @@ ng generate interface <folder-name>/<type-name>
 - Dynamic input fields when the input of type array
 - EventEmitter to pass from child to parent component
 - Read about FormGroup.patchValue
+- Observables in RxJs
+- Behavior Subject in RxJs
+- HttpClient in angular

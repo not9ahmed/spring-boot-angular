@@ -1,0 +1,8 @@
+<div class="row">
+    @for (product of productsList; track product.id) {
+        <div class="col-md-4">
+            <!-- passing product object to the card component -->
+            <app-product-card [product]="product"></app-product-card>
+        </div>
+    }
+</div>
