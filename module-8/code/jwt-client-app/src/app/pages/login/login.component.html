@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col"></div>
+    <div class="col">
+        <h2>Login Page</h2>
+        <form [formGroup]="myForm" (ngSubmit)="handleSubmit()">
+            <div class="mb-2">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" formControlName="username">
+            </div>
+            <div class="mb-2">
+                <label for="password" class="form-label">Password</label>
+                <input type="text" class="form-control" id="password" formControlName="password">
+            </div>
+            <div class="mb-2">
+                <button type="submit" class="btn btn-success">Sign In</button>
+                <p class="text-danger">{{errorMessage}}</p>
+            </div>
+
+            <div class="mb-2">
+                <h4>New user register<a routerLink="/register">Register</a></h4>
+            </div>
+        </form>
+    </div>
+    <div class="col"></div>
+</div>
