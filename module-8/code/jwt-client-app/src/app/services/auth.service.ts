@@ -3,14 +3,18 @@ import { Injectable } from '@angular/core';
 import { TokenService } from './token.service';
 import { Login, User } from '../models/user';
 import { map } from 'rxjs';
+import { environment } from '../../environments/environment.development';
 
 
-const API_BASE_URL = "http://localhost:8080/api";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
+
+  apiUrl = environment.baseApiUrl;
+
 
   // Service will handle the authentication done by client
 
@@ -18,17 +22,18 @@ export class AuthService {
 
 
   register(user: User) {
-    return this.http.post<any>(`${API_BASE_URL}/auth/register`, user);
+    return this.http.post<any>(`${this.apiUrl}/auth/register`, user);
   }
 
 
   login(login: Login) {
-    return this.http.post<any>(`${API_BASE_URL}/auth/login`, login)
+    return this.http.post<any>(`${this.apiUrl}/auth/login`, login)
           .pipe(
             map((response) => {
             if(response.token) {
               this.tokenService.setToken(response.token, response.role);
             }
+            return response;
           }
         ));
   }

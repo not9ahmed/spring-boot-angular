@@ -38,9 +38,10 @@ export class LoginComponent {
       this.authService.login({username, password}).subscribe({
         next: (response) => {
           
-          // if(response && response.token) {
-          //   this.router.navigate(['/products']);
-          // }
+
+          if(response && response.token) {
+            this.router.navigate(['/products']);
+          }
 
         },
         error: (error) => {

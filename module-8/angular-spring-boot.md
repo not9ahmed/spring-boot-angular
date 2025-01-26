@@ -9,6 +9,12 @@
   - Stateless
 
 
+## Create enviornments
+
+```zsh
+ng g environments
+```
+
 Notes:
 
 - Refresh Tokens for JWT

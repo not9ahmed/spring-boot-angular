@@ -22,18 +22,27 @@ import java.util.function.Function;
 @Service
 public class JwtService {
     private final TokenRepository tokenRepository;
+
+    private String jwtSecretKey = "my-very-long-secret-key-for-testing";
+
     private String jwtSigningKey;
     private long accessTokenExpiration= 2592000000L;
     public JwtService(TokenRepository tokenRepository){
         this.tokenRepository = tokenRepository;
-        try {
-            KeyGenerator keyGen = KeyGenerator.getInstance("HmacSHA256");
-            SecretKey sk = keyGen.generateKey();
-            jwtSigningKey = Base64.getEncoder().encodeToString(sk.getEncoded());
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        }
+
+
+        // create a secret key from the string above
+        jwtSigningKey = Base64.getEncoder().encodeToString(jwtSecretKey.getBytes());
+//        try {
+//            KeyGenerator keyGen = KeyGenerator.getInstance("HmacSHA256");
+//            SecretKey sk = keyGen.generateKey();
+//            jwtSigningKey = Base64.getEncoder().encodeToString(sk.getEncoded());
+
+//        } catch (NoSuchAlgorithmException e) {
+//            throw new RuntimeException(e);
+//        }
     }
+
     public String extractUserName(String token) {
         return extractClaim(token, Claims::getSubject);
     }

@@ -21,6 +21,11 @@ export const authGuard: CanActivateFn = (route, state) => {
     return true;
   })
 
+  const allowedRoles: string[] = route.data['roles'];
+  if (!allowedRoles.includes(tokenService.getRole())) {
+    router.navigate(['/unauthorize']);
+  }
+
 
   return true;
 };

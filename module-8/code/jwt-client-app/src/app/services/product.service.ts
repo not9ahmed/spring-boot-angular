@@ -3,13 +3,15 @@ import { Injectable } from '@angular/core';
 import { TokenService } from './token.service';
 import { Product } from '../models/product';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment.development';
 
-const BASE_API_URL = 'http://localhost:8080/api/products';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
+
+  apiURl = environment.baseApiUrl + '/products'
 
   constructor(private http: HttpClient, private tokenService: TokenService) { 
 
@@ -22,6 +24,6 @@ export class ProductService {
     headers = headers.set('Authorization', 'Bearer ' + this.tokenService.getToken())
 
 
-    return this.http.get<Product[]>(`${BASE_API_URL}`, {headers});
+    return this.http.get<Product[]>(`${this.apiURl}`, {headers});
   }
 }

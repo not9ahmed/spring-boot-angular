@@ -1,1 +1,54 @@
-<p>register works!</p>
+<div class="row">
+    <div class="col"></div>
+    <div class="col">
+        <h2>Register Page</h2>
+        <form [formGroup]="myForm" (ngSubmit)="handleSubmit()">
+            <div class="mb-2">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstName" formControlName="firstName">
+                <p class="text-danger" *ngIf="firstName.invalid && firstName.touched && firstName.getError('required')">First name is required</p>
+            </div>
+
+            <div class="mb-2">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastName" formControlName="lastName">
+                <p class="text-danger" *ngIf="lastName.invalid && lastName.touched && lastName.getError('required')">Last name is required</p>
+            </div>
+
+            
+            <div class="mb-2">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" formControlName="username">
+                <p class="text-danger" *ngIf="username.invalid && username.touched && username.getError('required')">User name is required</p>
+
+            </div>
+            <div class="mb-2">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" formControlName="password">
+                <p class="text-danger" *ngIf="password.invalid && password.touched && password.getError('required')">First name is required</p>
+            </div>
+
+
+            <div class="mb-2">
+                <label for="role" class="form-label">User Role</label>
+                <select name="role" id="" class="form-select" formControlName="role">
+                    <option value="">Select a Role</option>
+                    <option value="USER">User</option>
+                    <option value="ADMIN">Admin</option>
+                </select>
+                <p class="text-danger" *ngIf="role.invalid && role.touched && role.getError('required')">Role is required</p>
+            </div>
+
+
+            <div class="mb-2">
+                <button type="submit" class="btn btn-success">Register</button>
+                <p class="text-danger">{{errorMessage}}</p>
+            </div>
+
+            <div class="mb-2">
+                <h4>Registered user?<a routerLink="/login">Login</a></h4>
+            </div>
+        </form>
+    </div>
+    <div class="col"></div>
+</div>
