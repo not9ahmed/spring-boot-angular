@@ -6,12 +6,15 @@ import { UnauthorizedComponent } from './pages/unauthorized/unauthorized.compone
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { authGuard } from './guards/auth.guard';
 import { BooksComponent } from './pages/books/books.component';
+import { unsavedGuard } from './guards/unsaved.guard';
 // import { PaymentsComponent } from './pages/payments/payments.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: '/login', pathMatch:'full'},
     {path: 'login', component: LoginComponent},
-    {path: 'register', component: RegisterComponent},
+
+
+    {path: 'register', component: RegisterComponent, canDeactivate: [unsavedGuard]},
 
     // User roles restrictions
     {path: 'products', component: ProductsComponent, canActivate:[authGuard], data: {roles: ['ADMIN', 'USER']}},

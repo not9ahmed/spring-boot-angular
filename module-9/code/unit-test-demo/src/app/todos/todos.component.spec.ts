@@ -9,9 +9,7 @@ import { TodoService } from '../services/todo.service';
 
 class MockTodoService {
   getTodos() {
-    return of([
-      {id: 1, title: "Angular Testing", completed: false}
-    ]);
+    return of([{id: 1, title: 'Test title', completed: false}]);
   }
 }
 
@@ -20,7 +18,6 @@ class MockTodoService {
 describe('TodosComponent', () => {
   let component: TodosComponent;
   let fixture: ComponentFixture<TodosComponent>;
-
   let mockService: MockTodoService;
 
   beforeEach(async () => {
@@ -48,11 +45,9 @@ describe('TodosComponent', () => {
     expect(component).toBeTruthy();
   });
 
-
-  it('should load todos on intialization', () => {
-
-    
-    expect(component.todoList.length).toBe(1);
-    expect(component.todoList[0].title).toBe("Angular Testing");
+  it('should load todos on initialization', () => {
+    expect(component.todoList.length).toBe(1)
+    expect(component.todoList[0].title).toBe('Test title')
   });
+
 });

@@ -25,7 +25,6 @@ export class TokenService {
 
   setToken(token: string, role: string) {
     
-    
     localStorage.setItem('login-token', token);
     localStorage.setItem('user-role', role);
 

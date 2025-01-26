@@ -19,10 +19,12 @@ describe('TodoService', () => {
 
         // to perform the testing
         provideHttpClientTesting()
+        
       ]
     });
     service = TestBed.inject(TodoService);
-    httpMock = TestBed.inject(HttpTestingController)
+    httpMock = TestBed.inject(HttpTestingController);
+
   });
 
   it('should be created', () => {
@@ -33,7 +35,7 @@ describe('TodoService', () => {
   it('should fetch todos from the API', () => {
 
     const mockTodos: Todo[] = [
-      {id: 1, title: "Testing Angulat", completed: false},
+      {id: 1, title: "Testing Angular", completed: false},
     ]
 
     service.getTodos().subscribe((todos) => {
@@ -46,6 +48,7 @@ describe('TodoService', () => {
     const req = httpMock.expectOne("http://localhost:8080/api/todos");
     expect(req.request.method).toBe('GET');
     req.flush(mockTodos);
+
 
   });
 });

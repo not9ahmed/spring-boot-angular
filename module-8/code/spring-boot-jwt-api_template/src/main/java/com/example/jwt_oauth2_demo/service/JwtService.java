@@ -33,6 +33,7 @@ public class JwtService {
 
         // create a secret key from the string above
         jwtSigningKey = Base64.getEncoder().encodeToString(jwtSecretKey.getBytes());
+        System.out.println(jwtSigningKey);
 //        try {
 //            KeyGenerator keyGen = KeyGenerator.getInstance("HmacSHA256");
 //            SecretKey sk = keyGen.generateKey();
@@ -48,11 +49,21 @@ public class JwtService {
     }
 
     public String generateToken(UserDetails userDetails) {
+
         return generateToken(new HashMap<>(), userDetails, accessTokenExpiration);
     }
     public boolean isTokenValid(String token, UserDetails userDetails) {
+
+        // first will get the username from the token
         final String userName = extractUserName(token);
-        Token tokenFromDb = tokenRepository.findByToken(token).orElseThrow(() -> new TokenNotFoundException(token));
+
+        // then get token from the database if it exists
+        Token tokenFromDb = tokenRepository.
+                findByToken(token)
+                .orElseThrow(() -> new TokenNotFoundException(token));
+
+        // return tru is the username in token matches the username in db
+        // and the token is not expired
         return (userName.equals(userDetails.getUsername())) && !isTokenExpired(token);
     }
 

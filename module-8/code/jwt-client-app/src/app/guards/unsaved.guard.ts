@@ -1,6 +1,6 @@
 import { CanDeactivateFn } from '@angular/router';
 
-export const unsavedGuard: CanDeactivateFn<unknown> = (component, currentRoute, currentState, nextState) => {
+export const unsavedGuard: CanDeactivateFn<unknown> = (component: any, currentRoute, currentState, nextState) => {
 
 
   // component.myForm.dirty means the form has been touched

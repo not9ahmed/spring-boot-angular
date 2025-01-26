@@ -13,12 +13,13 @@ export class TodosComponent {
   todoList: Todo[] = [];
 
   constructor(private todoService: TodoService){
+    this.loadTodos()
   }
 
   loadTodos() {
-    this.todoService.getTodos().subscribe(data => {
-      this.todoList = data;
-    });
+    this.todoService.getTodos().subscribe((data)=>{
+      this.todoList = data
+    })
   }
 
 

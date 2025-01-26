@@ -2,6 +2,8 @@ import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 import { TokenService } from '../services/token.service';
 
+
+// Auth guard will check if the user can access the page before rendering it
 export const authGuard: CanActivateFn = (route, state) => {
 
   // since it's arrow function
@@ -23,7 +25,7 @@ export const authGuard: CanActivateFn = (route, state) => {
 
   const allowedRoles: string[] = route.data['roles'];
   if (!allowedRoles.includes(tokenService.getRole())) {
-    router.navigate(['/unauthorize']);
+    router.navigate(['/unauthorized']);
   }
 
 
