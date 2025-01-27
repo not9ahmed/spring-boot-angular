@@ -19,6 +19,7 @@ public class EmployeeController {
     }
 
     @PostMapping
+    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<Employee> createEmployee(@RequestBody Employee employee) {
 
         // So that a new record is created
@@ -35,6 +36,7 @@ public class EmployeeController {
         List<Employee> employees = employeeService.findAll();
         return ResponseEntity.ok(employees);
     }
+
 
     @GetMapping("/{id}")
     public ResponseEntity<Employee> findById(@PathVariable("id") Integer id) {
