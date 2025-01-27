@@ -15,29 +15,19 @@ public class CorsConfig {
     private String frontendUrl;
 
 
-    // @Bean
-    // public WebMvcConfigurer corsConfigurer() {
-    //     return new WebMvcConfigurer() {
-    //         @Override
-    //         public void addCorsMappings(CorsRegistry registry) {
-    //             registry.addMapping("/**")
-    //                     .allowedMethods("*")
-    //                     .allowedOrigins("http://localhost:4200", frontendUrl);
-    //
-    //         }
-    //     };
-    // }
-
     @Bean
-    public WebMvcConfigurer corsConfigurer(){
+    public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
                         .allowedMethods("*")
-                        .allowedOrigins("http://localhost:4200", frontendUrl);
+                        .allowedOrigins("*", "http://localhost:4200", "http://localhost:8000" ,frontendUrl);
+
             }
         };
     }
+
+
     
 }
